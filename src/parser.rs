@@ -40,7 +40,7 @@ fn is_not_amp(data: char) -> bool {
 }
 
 fn parse_key(data: &str) -> IResult<&str, &str> {
-    preceded(opt(alt((tag("&"), tag("?")))), take_while(is_not_equals))(data)
+    preceded(opt(alt((tag("&"), tag("?"), tag("/")))), take_while(is_not_equals))(data)
 }
 
 fn parse_value(data: &str) -> IResult<&str, &str> {
